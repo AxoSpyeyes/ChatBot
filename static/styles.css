@@ -1,0 +1,13 @@
+#chat-box {
+    width: 30%;
+    height: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#ikea-box {
+    width: 70%;
+    height: 100
+    left: 0;
+}

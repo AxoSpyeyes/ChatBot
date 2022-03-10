@@ -1,11 +1,27 @@
-<!doctype html>
-<link rel="stylesheet" href="static/styles.css">
-<title>REAL IKEA</title>
-<iframe
-    id="chat-box";
-    allow="microphone;"
-    src="https://console.dialogflow.com/api-client/demo/embedded/f044404b-c0a3-4f89-b348-f53f3436bad4">
-</iframe>
-<div >
-    <image id="ikea-box" src="{{url_for('static',filename = 'images/ikea.png')}}" >
-</div>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="./static/styles.css">
+</head>
+    <body>
+        <div id="chat-box">
+            <form id="message-box-form" action="{{ url_for('send')}}" method="post">
+            <input type="text" id="send-box" name="send-text" placeholder="try saying hi!">
+            </form>
+            <div id="messages">
+            {%for i in messages%}
+                {% if i[0] == 'user'%}
+                    <p align="right" class="user" class="message">{{ i[1] }}</p>
+                {% else %}
+                    <p align="left" class="bot" class="message">{{ i[1] }}</p>
+                {%endif%}
+            {% endfor %}
+            </div>
+        </div>
+        <div id="image-box">
+            <img id="furniture-image" src="{{ image }}">
+
+        </div>
+    </body>
+</html>
